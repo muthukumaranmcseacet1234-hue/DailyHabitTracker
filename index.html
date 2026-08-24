@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== Top header ===== -->
+    <header class="app-header">
+        <h1>Daily Habit Tracker</h1>
+        <p id="todayDate" class="today-date"></p>
+    </header>
+
+    <main class="container">
+
+        <!-- ===== Dashboard summary cards ===== -->
+        <section class="stats" aria-label="Habit statistics">
+            <div class="stat-card">
+                <span class="stat-number" id="totalCount">0</span>
+                <span class="stat-label">Total Habits</span>
+            </div>
+            <div class="stat-card completed">
+                <span class="stat-number" id="completedCount">0</span>
+                <span class="stat-label">Completed</span>
+            </div>
+            <div class="stat-card pending">
+                <span class="stat-number" id="pendingCount">0</span>
+                <span class="stat-label">Pending</span>
+            </div>
+            <div class="stat-card percent">
+                <span class="stat-number" id="percentValue">0%</span>
+                <span class="stat-label">Today's Progress</span>
+            </div>
+        </section>
+
+        <!-- ===== Progress bar ===== -->
+        <section class="progress-section">
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+            </div>
+        </section>
+
+        <!-- ===== Add Habit form ===== -->
+        <section class="form-section">
+            <h2>Add a New Habit</h2>
+            <!-- onsubmit="return false" stops the page from reloading -->
+            <form id="habitForm" onsubmit="return false">
+                <div class="form-row">
+                    <label for="habitName">Habit Name</label>
+                    <input type="text" id="habitName" name="habit_name"
+                           placeholder="e.g. Drink 8 glasses of water" required maxlength="150">
+                </div>
+
+                <div class="form-row">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" name="description"
+                           placeholder="A short note about this habit (optional)">
+                </div>
+
+                <div class="form-row">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" required>
+                        <option value="">-- Choose a category --</option>
+                        <option value="Health">Health</option>
+                        <option value="Study">Study</option>
+                        <option value="Fitness">Fitness</option>
+                        <option value="Personal">Personal</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="submitBtn">Add Habit</button>
+            </form>
+
+            <!-- Message area for success / error feedback -->
+            <div id="formMessage" class="message" role="alert"></div>
+        </section>
+
+        <!-- ===== Habit list ===== -->
+        <section class="habits-section">
+            <h2>Your Habits</h2>
+
+            <!-- Loading / empty / error feedback for the list -->
+            <div id="listMessage" class="message" role="alert"></div>
+
+            <!-- JavaScript fills this with habit cards -->
+            <div id="habitsList" class="habits-list"></div>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <p>Daily Habit Tracker &mdash; built with HTML, CSS, JavaScript, PHP &amp; MySQL</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

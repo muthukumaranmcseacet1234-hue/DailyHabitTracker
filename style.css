@@ -1,0 +1,332 @@
+/* =============================================================
+   Daily Habit Tracker - style.css
+   A clean, modern, responsive dashboard using plain CSS.
+   ============================================================= */
+
+/* ----- Reset & base styles ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #2d3436;
+    line-height: 1.5;
+}
+
+/* ----- Header ----- */
+.app-header {
+    background: linear-gradient(135deg, #0984e3, #74b9ff);
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.app-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.today-date {
+    margin-top: 0.4rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* ----- Main container ----- */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+/* ----- Stats cards ----- */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e3e8ee;
+    border-radius: 12px;
+    padding: 1.2rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stat-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #636e72;
+}
+
+/* Colored accents for each card */
+.stat-card.completed .stat-number { color: #00b894; }
+.stat-card.pending   .stat-number { color: #fdcb6e; }
+.stat-card.percent   .stat-number { color: #0984e3; }
+
+/* ----- Progress bar ----- */
+.progress-section {
+    margin-bottom: 1.8rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 18px;
+    background: #e3e8ee;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00b894, #55efc4);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+/* ----- Form section ----- */
+.form-section,
+.habits-section {
+    background: #ffffff;
+    border: 1px solid #e3e8ee;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.form-section h2,
+.habits-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #2d3436;
+}
+
+.form-row {
+    margin-bottom: 1rem;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-row input,
+.form-row select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.form-row input:focus,
+.form-row select:focus {
+    outline: none;
+    border-color: #0984e3;
+}
+
+#submitBtn {
+    background: #0984e3;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#submitBtn:hover {
+    background: #0773c5;
+}
+
+/* ----- Feedback messages ----- */
+.message {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+}
+
+.message.success { color: #00b894; }
+.message.error   { color: #d63031; }
+
+/* ----- Habit cards ----- */
+.habits-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.habit-card {
+    background: #ffffff;
+    border: 1px solid #e3e8ee;
+    border-radius: 12px;
+    padding: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.habit-card.completed-card {
+    border-color: #55efc4;
+    background: #f6fffb;
+}
+
+.habit-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    word-break: break-word;
+}
+
+.habit-card .habit-description {
+    color: #636e72;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    word-break: break-word;
+}
+
+.habit-card .habit-meta {
+    font-size: 0.8rem;
+    color: #636e72;
+    margin-bottom: 0.4rem;
+}
+
+/* Category badge */
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #dfe6e9;
+    color: #2d3436;
+    margin-bottom: 0.6rem;
+}
+
+.badge.Health   { background: #c8f7dc; color: #00805f; }
+.badge.Study    { background: #cde8ff; color: #07579c; }
+.badge.Fitness  { background: #ffe2c8; color: #b5631a; }
+.badge.Personal { background: #f4d8ff; color: #7a32a8; }
+.badge.Other    { background: #e3e8ee; color: #44505c; }
+
+/* Status tag */
+.status-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.status-tag.pending {
+    background: #fff3cd;
+    color: #92640c;
+}
+
+.status-tag.completed {
+    background: #d4f5e9;
+    color: #007e5f;
+}
+
+/* Action buttons inside a card */
+.habit-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.btn {
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-complete {
+    background: #00b894;
+    color: #ffffff;
+}
+
+.btn-complete:hover {
+    background: #009b7d;
+}
+
+.btn-delete {
+    background: #d63031;
+    color: #ffffff;
+}
+
+.btn-delete:hover {
+    background: #b71c1c;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ----- Footer ----- */
+.app-footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #636e72;
+    font-size: 0.85rem;
+}
+
+/* =============================================================
+   Responsive design — adjust for tablets and phones
+   ============================================================= */
+@media (max-width: 768px) {
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .app-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.4rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .habits-list {
+        grid-template-columns: 1fr;
+    }
+}
